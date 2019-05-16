@@ -240,4 +240,8 @@ NAN_MODULE_INIT(Initialize) {
 	TileOptions::Init(target);
 }
 
+#if NODE_MAJOR_VERSION >= 10
+NAN_MODULE_WORKER_ENABLED(tile_bindings, Initialize)
+#else
 NODE_MODULE(tile_bindings, Initialize)
+#endif
